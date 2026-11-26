@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero text-center"
+  {% if site.banner_filename %}style="background-image:linear-gradient(rgba(81,13,22,.75),rgba(81,13,22,.75)),url('{{ url_for('main.uploads', filename=site.banner_filename) }}')"{% endif %}>
+  <div class="container">
+    <h1>{{ site.business_name }}</h1>
+    <p class="tagline">{{ site.tagline }}</p>
+  </div>
+</section>
+
+<section class="welcome text-center">
+  <div class="container">
+    <h2>Welcome to {{ site.business_name }}</h2>
+    <p>{{ site.welcome_text }}</p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="section-title text-center mb-4">Explore Our Products</h2>
+    {% include "_category_cards.html" %}
+    <div class="text-center mt-5">
+      <a href="{{ url_for('main.products') }}" class="btn btn-burgundy btn-lg">View All Products</a>
+    </div>
+  </div>
+</section>
+
+<section class="welcome text-center">
+  <div class="container">
+    <h2 class="h4">Wholesale &amp; Individual Orders</h2>
+    <p>Available for both wholesale and individual orders. Contact us to enquire about designs, sizes and pricing.</p>
+    <a class="btn btn-gold me-2" href="{{ tel_link() }}">Call Us</a>
+    <a class="btn btn-wa" href="{{ wa_link() }}" target="_blank" rel="noopener">WhatsApp Us</a>
+  </div>
+</section>
+{% endblock %}

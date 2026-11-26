@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Contact | {{ site.business_name }}{% endblock %}
+{% block content %}
+<section class="py-5 text-center">
+  <div class="container">
+    <h1 class="section-title">{{ site.business_name }}</h1>
+    <p>For product details, orders and enquiries, contact us.</p>
+    <p class="fs-5">Phone: <a href="{{ tel_link() }}">{{ site.phone }}</a></p>
+    <p class="fs-5">WhatsApp: <a href="{{ wa_link() }}" target="_blank" rel="noopener">{{ site.whatsapp }}</a></p>
+    <a class="btn btn-gold me-2" href="{{ tel_link() }}">Call Now</a>
+    <a class="btn btn-wa" href="{{ wa_link() }}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+  </div>
+</section>
+{% endblock %}

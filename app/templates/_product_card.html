@@ -1,0 +1,17 @@
+<div class="col-6 col-md-4 col-lg-3">
+  <div class="product-card h-100">
+    <button type="button" class="img-btn" data-full="{{ url_for('main.uploads', filename=p.image_filename) }}"
+            data-title="{{ p.code }} | {{ p.category.name }} | {{ p.size.label }}">
+      <img src="{{ url_for('main.uploads', filename=p.image_filename) }}"
+           alt="{{ p.category.name }} {{ p.size.label }} design {{ p.code }}" loading="lazy">
+    </button>
+    <div class="product-info">
+      <h3 class="h6 mb-1">{{ p.code }}</h3>
+      <p class="small mb-2">{{ p.category.name }} | {{ p.size.label }}</p>
+      <a class="btn btn-wa btn-sm w-100" target="_blank" rel="noopener"
+         href="{{ wa_link('Hello, I would like to enquire about design ' ~ p.code ~ ' (' ~ p.category.name ~ ', ' ~ p.size.label ~ ')') }}">
+        WhatsApp Enquiry
+      </a>
+    </div>
+  </div>
+</div>

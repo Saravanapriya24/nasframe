@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}About | {{ site.business_name }}{% endblock %}
+{% block content %}
+<section class="py-5 text-center">
+  <div class="container about">
+    <h1 class="section-title">Welcome to {{ site.business_name }}</h1>
+    <p class="tagline-dark">{{ site.tagline }}</p>
+    <p>{{ site.welcome_text }}</p>
+
+    <h2 class="h3 mt-5">About {{ site.business_name }}</h2>
+    <p class="gold-text">Tradition • Devotion • Elegance</p>
+    <p>{{ site.about_text }}</p>
+    <p>We believe a devotional photo is more than a decoration. It brings peace, faith and a sense of blessing into the space where it hangs. That is why we offer a wide range of God photo designs, so you can choose the one that feels right for your home, shop, office or temple.</p>
+
+    <h2 class="h3 mt-5">Our Frame Collection</h2>
+    <div class="row g-3 text-start mt-2">
+      <div class="col-md-6"><strong>Glass Frames</strong><br>A classic way to display your devotional photo.</div>
+      <div class="col-md-6"><strong>Mat Frames</strong><br>A clean, simple look for everyday display.</div>
+      <div class="col-md-6"><strong>Lamination Frames</strong><br>A practical, easy-care option.</div>
+      <div class="col-md-6"><strong>3D Image Frames</strong><br>Designs with added depth and a rich look.</div>
+      <div class="col-md-6"><strong>PVC Frames</strong><br>A lightweight and durable choice.</div>
+    </div>
+    <p class="mt-3">Each style is available in a range of sizes. Browse the Products page to see the designs and sizes available.</p>
+
+    <h2 class="h3 mt-5">What We Offer</h2>
+    <ul class="list-unstyled">
+      <li><strong>Multiple Frame Styles and Sizes</strong><br>A variety of frame styles and sizes to choose from.</li>
+      <li class="mt-2"><strong>Beautiful God Photo Designs</strong><br>Devotional images featuring different Gods and spiritual designs.</li>
+      <li class="mt-2"><strong>Wholesale and Individual Sales</strong><br>We welcome both single purchases and bulk orders.</li>
+      <li class="mt-2"><strong>Frames for Every Space</strong><br>Suitable for homes, offices, temples and gifting.</li>
+    </ul>
+
+    <h2 class="h3 mt-5">Wholesale &amp; Individual Orders</h2>
+    <p>Whether you are a shop owner looking for bulk stock or a family looking for one special frame, we are happy to help. Contact us to ask about designs, sizes, availability and pricing.</p>
+
+    <h2 class="h3 mt-5">How to Order</h2>
+    <ol class="text-start d-inline-block">
+      <li>Browse the Products page and choose a design.</li>
+      <li>Tap <strong>WhatsApp Enquiry</strong> on the design you like, or call us.</li>
+      <li>Tell us the design, size and quantity you need.</li>
+      <li>We will confirm availability and pricing with you.</li>
+    </ol>
+
+    <h2 class="h3 mt-5">Our Commitment</h2>
+    <p>Whether you are purchasing a single frame or placing a bulk order, we are happy to serve you.</p>
+    <p>At {{ site.business_name }}, our aim is to bring devotion, beauty and elegance to every space.</p>
+    <p>Thank you for choosing {{ site.business_name }}!</p>
+
+    <div class="mt-4">
+      <a class="btn btn-gold me-2" href="{{ tel_link() }}">Call Us</a>
+      <a class="btn btn-wa" href="{{ wa_link() }}" target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

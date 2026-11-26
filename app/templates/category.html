@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ cat.name }} | {{ site.business_name }}{% endblock %}
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <h1 class="section-title text-center mb-5">{{ cat.name }}</h1>
+    {% for size, products in groups.items() %}
+      <h2 class="size-heading">{{ size.label }}</h2>
+      <div class="row g-3 mb-5">
+        {% for p in products %}{% include "_product_card.html" %}{% endfor %}
+      </div>
+    {% else %}
+      <p class="text-center">No designs have been added to this category yet. Please contact us for availability.</p>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

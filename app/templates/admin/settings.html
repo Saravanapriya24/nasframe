@@ -1,0 +1,26 @@
+{% extends "admin/base.html" %}
+{% block content %}
+<h1 class="h3 mb-4">Website Content</h1>
+<form method="post" enctype="multipart/form-data" class="row g-3" style="max-width:700px">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <div class="col-md-6"><label class="form-label">Business name</label>
+    <input class="form-control" name="business_name" value="{{ s.business_name }}" required></div>
+  <div class="col-md-6"><label class="form-label">Tagline</label>
+    <input class="form-control" name="tagline" value="{{ s.tagline }}"></div>
+  <div class="col-md-6"><label class="form-label">Logo</label>
+    <input class="form-control" type="file" name="logo" accept=".jpg,.jpeg,.png,.webp">
+    {% if s.logo_filename %}<img class="thumb mt-2" src="{{ url_for('main.uploads', filename=s.logo_filename) }}" alt="Logo">{% endif %}</div>
+  <div class="col-md-6"><label class="form-label">Homepage banner</label>
+    <input class="form-control" type="file" name="banner" accept=".jpg,.jpeg,.png,.webp">
+    {% if s.banner_filename %}<img class="thumb mt-2" src="{{ url_for('main.uploads', filename=s.banner_filename) }}" alt="Banner">{% endif %}</div>
+  <div class="col-12"><label class="form-label">Welcome text</label>
+    <textarea class="form-control" name="welcome_text" rows="3">{{ s.welcome_text }}</textarea></div>
+  <div class="col-12"><label class="form-label">About text</label>
+    <textarea class="form-control" name="about_text" rows="4">{{ s.about_text }}</textarea></div>
+  <div class="col-md-6"><label class="form-label">Phone</label>
+    <input class="form-control" name="phone" value="{{ s.phone }}"></div>
+  <div class="col-md-6"><label class="form-label">WhatsApp</label>
+    <input class="form-control" name="whatsapp" value="{{ s.whatsapp }}"></div>
+  <div class="col-12"><button class="btn btn-burgundy">Save Changes</button></div>
+</form>
+{% endblock %}

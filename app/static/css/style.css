@@ -1,0 +1,292 @@
+:root {
+  --burgundy: #510D16;
+  --gold: #D4AF37;
+  --champagne: #F5D778;
+  --antique: #E8CFA0;
+  --cream: #FFF8EB;
+  --brown: #4A3025;
+  --blush: #F1E1DD;
+  --terracotta: #CC4331;
+}
+
+* { box-sizing: border-box; }
+html, body { overflow-x: hidden; }
+
+body {
+  font-family: "Lato", sans-serif;
+  background: var(--blush);
+  color: var(--brown);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 { font-family: "Playfair Display", serif; color: var(--burgundy); }
+a { color: var(--burgundy); }
+img { max-width: 100%; height: auto; }
+
+/* ---------- header ---------- */
+.site-header {
+  background: var(--burgundy);
+  border-bottom: 3px solid var(--gold);
+  padding: .6rem 0;
+}
+.brand { text-decoration: none; }
+.brand-logo { height: 52px; width: 52px; object-fit: contain; border-radius: 6px; }
+.brand-name {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--champagne);
+  letter-spacing: .04em;
+}
+
+/* ---------- hamburger menu button ---------- */
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  min-height: 44px;
+  padding: .4rem .8rem;
+  background: transparent;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  color: var(--champagne);
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+.nav-toggle .bars {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+}
+.nav-toggle .bars span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--champagne);
+  border-radius: 2px;
+}
+.nav-toggle:hover, .nav-toggle:focus-visible { background: rgba(212, 175, 55, .2); }
+
+/* hide the button on desktop, where the menu is always visible */
+@media (min-width: 768px) {
+  .nav-toggle { display: none; }
+}
+.main-nav .nav-link {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  color: var(--champagne);
+  padding: .7rem 1.4rem;
+  min-height: 44px;
+}
+.main-nav .nav-link:hover,
+.main-nav .nav-link:focus { color: #fff; }
+
+/* ---------- hero ---------- */
+.hero {
+  background: var(--burgundy) center / cover no-repeat;
+  padding: 4rem 0;
+  border-bottom: 3px solid var(--gold);
+}
+.hero h1 {
+  color: var(--champagne);
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 6vw, 3.4rem);
+  letter-spacing: .04em;
+}
+.hero .tagline {
+  color: var(--antique);
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: clamp(1.05rem, 3vw, 1.6rem);
+  margin: 0;
+}
+
+/* ---------- sections ---------- */
+.welcome { padding: 2rem 0; }
+.welcome p { max-width: 640px; margin: 0 auto 1rem; }
+.section-title {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  color: var(--burgundy);
+}
+.section-title::after {
+  content: "❖";
+  display: block;
+  color: var(--gold);
+  font-size: 1rem;
+  margin-top: .3rem;
+}
+.tagline-dark { font-family: "Playfair Display", serif; font-style: italic; color: var(--brown); font-size: 1.2rem; }
+.gold-text { color: #8a6d0b; font-weight: 700; }
+.about { max-width: 760px; }
+
+/* ---------- category cards ---------- */
+.cat-card {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid var(--antique);
+  border-radius: 10px;
+  padding: .75rem;
+  transition: box-shadow .2s;
+}
+.cat-card:hover, .cat-card:focus { box-shadow: 0 4px 14px rgba(81, 13, 22, .2); }
+.cat-card img, .img-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.img-placeholder {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--burgundy);
+  color: var(--champagne);
+  font-family: "Cinzel", serif;
+  padding: .5rem;
+}
+.cat-name {
+  display: block;
+  margin-top: .6rem;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  color: var(--burgundy);
+}
+
+/* ---------- size pills ---------- */
+.size-pill {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 100px; min-height: 48px;
+  padding: .5rem 1.4rem;
+  background: var(--burgundy);
+  color: #fff;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.size-pill:hover, .size-pill:focus { background: var(--terracotta); color: #fff; }
+
+/* ---------- galleries ---------- */
+.size-heading {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: .3rem;
+  margin-bottom: 1rem;
+}
+.product-card {
+  background: #fff;
+  border: 1px solid var(--antique);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.img-btn {
+  border: 0; padding: 0; background: var(--cream);
+  cursor: zoom-in; display: block; width: 100%;
+}
+.img-btn img {
+  width: 100%;
+  aspect-ratio: 1 / 1;      /* same box for every photo */
+  object-fit: contain;      /* whole photo visible, never cropped */
+  display: block;
+  padding: 6px;
+}
+.product-info { padding: .75rem; margin-top: auto; }
+.product-info h3 { font-family: "Cinzel", serif; font-weight: 700; color: var(--brown); }
+
+/* ---------- buttons ---------- */
+.btn-burgundy { background: var(--burgundy); color: #fff; border: 0; min-height: 44px; }
+.btn-burgundy:hover { background: #3b0a10; color: #fff; }
+.btn-gold { background: var(--gold); color: var(--burgundy); font-weight: 700; border: 0; min-height: 44px; }
+.btn-gold:hover { background: var(--champagne); color: var(--burgundy); }
+.btn-wa { background: #1e7a46; color: #fff; font-weight: 700; border: 0; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+.btn-wa:hover { background: #17603a; color: #fff; }
+
+/* ---------- footer ---------- */
+.site-footer {
+  background: var(--burgundy);
+  color: #fff;
+  padding: 1.5rem 0;
+  border-top: 3px solid var(--gold);
+}
+.site-footer h2 { color: var(--champagne); font-family: "Cinzel", serif; }
+.site-footer a { color: var(--champagne); }
+
+a:focus-visible, button:focus-visible { outline: 3px solid var(--terracotta); outline-offset: 2px; }
+
+/* cards take the height of their photo instead of stretching */
+.product-card { height: 100%; }
+.img-btn { background: var(--cream); }
+.product-info {
+  border-top: 1px solid var(--antique);
+  min-height: 108px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ---------- mobile polish (phones) ---------- */
+@media (max-width: 767px) {
+  body { font-size: 16px; }
+
+  .brand-logo { height: 44px; width: 44px; }
+  .brand-name { font-size: 1.05rem; }
+
+  .main-nav { padding-top: .5rem; }
+  .main-nav .nav-link {
+    padding: .85rem 1rem;
+    border-top: 1px solid rgba(212, 175, 55, .25);
+    text-align: center;
+  }
+
+  .hero { padding: 2.5rem 0; }
+  .orn { font-size: .9rem; letter-spacing: .4em; }
+  .hero-actions .btn { width: 100%; }
+
+  .welcome-card { padding: 1.5rem 1rem; outline-offset: -8px; }
+  .welcome-card p { font-size: 1rem; }
+
+  .section-title { font-size: 1.6rem; }
+  .size-heading { font-size: 1.3rem; }
+
+  /* category cards: two per row, comfortable gap */
+  .cat-name { font-size: .95rem; }
+
+  /* size buttons: two per row, equal width */
+  .size-pill { flex: 1 1 calc(50% - 1rem); min-width: 0; }
+
+  /* product cards */
+  .product-info { padding: .6rem; min-height: 96px; }
+  .product-info h3 { font-size: .95rem; }
+  .product-info p { font-size: .8rem; }
+  .btn-wa.btn-sm { min-height: 44px; font-size: .9rem; }
+
+  /* footer and contact buttons stack full width */
+  .btn-lg, .site-footer a { word-break: break-word; }
+  section .btn-gold, section .btn-wa { width: 100%; margin: .25rem 0 !important; }
+
+  /* big photo viewer fills the screen */
+  .modal-dialog { margin: .5rem; }
+}
+
+/* very small phones */
+@media (max-width: 360px) {
+  .brand-name { font-size: .95rem; }
+  .size-pill { flex-basis: 100%; }
+}
+
+/* ---------- admin on phones ---------- */
+@media (max-width: 767px) {
+  .table-responsive { -webkit-overflow-scrolling: touch; }
+  .thumb { width: 52px; height: 52px; }
+  form .btn, .btn-sm { min-height: 44px; }
+  .admin-nav .nav-link { padding: .75rem 0; }
+}

@@ -1,0 +1,62 @@
+{% extends "admin/base.html" %}
+{% block content %}
+<h1 class="h3 mb-4">{{ 'Edit Product' if product else 'Add Product' }}</h1>
+<form method="post" enctype="multipart/form-data" class="row g-3" style="max-width:640px">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+  <div class="col-12">
+    <label class="form-label" for="image">Product image (JPG, PNG or WebP, max 5 MB)</label>
+    <input class="form-control" type="file" id="image" name="image"
+           accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" {{ '' if product else 'required' }}>
+    <img id="preview" class="img-fluid mt-2 rounded border" style="max-height:260px;{{ '' if product else 'display:none' }}"
+         alt="Preview" {% if product %}src="{{ url_for('main.uploads', filename=product.image_filename) }}"{% endif %}>
+    {% if product %}<div class="form-text">Choose a new file only if you want to replace this image.</div>{% endif %}
+  </div>
+
+    <div class="col-12">
+    <label class="form-label" for="product_name">Name / note (optional, only you see this)</label>
+    <input class="form-control" id="product_name" name="product_name" maxlength="150" value="{{ data.name or '' }}">
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label" for="category_id">Category</label>
+    <select class="form-select" id="category_id" name="category_id" required>
+      <option value="">Select category</option>
+      {% for c in categories %}
+      <option value="{{ c.id }}" {{ 'selected' if data.category_id == c.id }}>{{ c.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label" for="size_id">Size</label>
+    <select class="form-select" id="size_id" name="size_id" required>
+      <option value="">Select size</option>
+      {% for s in sizes %}
+      <option value="{{ s.id }}" {{ 'selected' if data.size_id == s.id }}>{{ s.label }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="col-12">
+    <label class="form-label" for="description">Description (optional)</label>
+    <textarea class="form-control" id="description" name="description" rows="3">{{ data.description or '' }}</textarea>
+  </div>
+
+  <div class="col-12 form-check ms-2">
+    <input class="form-check-input" type="checkbox" id="is_active" name="is_active" {{ 'checked' if data.is_active }}>
+    <label class="form-check-label" for="is_active">Active (show on website)</label>
+  </div>
+
+  <div class="col-12">
+    <button class="btn btn-burgundy">Save Product</button>
+    <a class="btn btn-link" href="{{ url_for('admin.products') }}">Cancel</a>
+  </div>
+</form>
+<script>
+document.getElementById('image').addEventListener('change', function () {
+  const f = this.files[0], img = document.getElementById('preview');
+  if (f) { img.src = URL.createObjectURL(f); img.style.display = 'block'; }
+});
+</script>
+{% endblock %}

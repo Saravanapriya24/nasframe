@@ -1,0 +1,26 @@
+{% extends "admin/base.html" %}
+{% block content %}
+<h1 class="h3 mb-3">Frame Sizes</h1>
+<form method="post" action="{{ url_for('admin.add_size') }}" class="row g-2 mb-4" style="max-width:420px">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <div class="col"><input class="form-control" name="label" placeholder="e.g. 14 x 10" required aria-label="New size"></div>
+  <div class="col-auto"><button class="btn btn-burgundy">Add Size</button></div>
+</form>
+{% for s in sizes %}
+<div class="card card-body mb-2">
+  <div class="d-flex flex-wrap gap-2 align-items-center">
+    <form method="post" action="{{ url_for('admin.edit_size', sid=s.id) }}" class="d-flex gap-2">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <input class="form-control" style="width:130px" name="label" value="{{ s.label }}" aria-label="Size">
+      <button class="btn btn-sm btn-outline-dark">Rename</button>
+    </form>
+    <span class="text-muted small">{{ s.products|length }} product(s)</span>
+    <form method="post" action="{{ url_for('admin.delete_size', sid=s.id) }}" class="ms-auto"
+          onsubmit="return confirm('Remove size {{ s.label }}?');">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <button class="btn btn-sm btn-outline-danger" {{ 'disabled' if s.products }}>Remove</button>
+    </form>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

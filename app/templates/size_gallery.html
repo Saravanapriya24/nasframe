@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ size.label }} Frames | {{ site.business_name }}{% endblock %}
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <h1 class="section-title text-center mb-5">{{ size.label }} Frames</h1>
+    {% for cat, products in groups.items() %}
+      <h2 class="size-heading">{{ cat.name }}</h2>
+      <div class="row g-3 mb-5">
+        {% for p in products %}{% include "_product_card.html" %}{% endfor %}
+      </div>
+    {% else %}
+      <p class="text-center">No designs added in this size yet. Please contact us for availability.</p>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
